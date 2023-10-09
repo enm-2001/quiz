@@ -66,7 +66,7 @@ const loginUser = async (req, res) => {
       const pwdCorrect = await bcrypt.compare(password, users.password);
       if (pwdCorrect) {
         delete users.avatar
-        console.log(users);
+        // console.log(users);
         const token = await generateAccessToken(users);
         const user = users;
         res.status(201).json({ user, token });

@@ -13,4 +13,35 @@ const addQuiz = async (req, res) => {
     }
 }
 
-module.exports = {addQuiz}
+const getQuiz = async (req, res) => {
+    try {
+
+        const result = await quiz.getQuiz()
+        res.status(200).json(result)
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({error: "Server error"})
+    }
+}
+
+const getMarksByCategory = async (req, res) => {
+    try {
+        const result = await quiz.getMarksByCategory()
+        res.status(200).json(result)
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({error: "Server error"})
+    }
+}
+
+const getQuizByDate = async (req, res) => {
+    try {
+        const result = await quiz.getQuizByDate()
+        res.status(200).json(result)
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({error: "Server error"})
+    }
+}
+
+module.exports = {addQuiz, getQuiz, getMarksByCategory, getQuizByDate}

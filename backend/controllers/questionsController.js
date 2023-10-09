@@ -41,4 +41,28 @@ const deleteQuestion = async (req, res) => {
     }
 }
 
-module.exports = {getQuestions, createQuestion, deleteQuestion}
+const getQuestionById = async (req, res) => {
+    try {
+        const {id} = req.params
+        const result = await ques.getQuestionById(id)
+        // console.log(result)
+        res.status(200).json(result)
+    } catch (error) {
+        console.error('Error getting question', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+const updateQuestion = async (req, res) => {
+    try {
+        const {id} = req.params
+        const {question, answer, options} = req.body
+        await ques.updateQuestion(id, question, options, answer)
+        res.status(204).json({message: "Question updated"})
+    } catch (error) {
+        console.error('Error updating question', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+module.exports = {getQuestions, createQuestion, deleteQuestion, getQuestionById, updateQuestion}
