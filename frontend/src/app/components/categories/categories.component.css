@@ -1,0 +1,28 @@
+.container-sm{
+    /* margin: auto; */
+    margin-top: 30px;
+}
+
+.card{
+    /* width: 26rem; */
+    /* margin: 2px; */
+    /* padding: 10px; */
+    background-color: #C8FFE0!important;
+}
+
+.card:hover{
+    cursor: pointer;
+    background-color: #FFD9B7!important;
+}
+
+.card-title{
+    color: #AE445A!important;
+}
+
+.card-subtitle{
+    color: #557A46!important;
+}
+
+.card-text{
+    color: #451952!important;
+}

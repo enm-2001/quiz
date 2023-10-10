@@ -1,0 +1,40 @@
+.container-md{
+    padding: 50px 0px;
+    margin-top: 80px;
+    margin-bottom: 60px;
+    border: none !important;
+    box-shadow: 6px 6px 12px 6px rgba(0,0,0,0.2);
+    border-radius: 25px;
+    /* background-color: bisque; */
+}
+
+img{
+    width: 200px;
+    display: flex;
+    margin: auto;
+}
+
+.card{
+    background-color: #F6F4EB;
+    margin: 20px 70px;
+}
+.card-text{
+    text-align: center;
+    color: #AE445A;
+    padding-bottom: 40px;
+    font-size: 1.4rem;
+}
+.row{
+    padding-top: 40px;
+}
+
+.col-6:first-child{
+    color: #557A46;
+}
+
+@media screen and (max-width: 435px) {
+    /* Your CSS rules here */
+    .card{
+        margin: 20px 2px;
+    }
+  }

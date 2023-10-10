@@ -1,0 +1,28 @@
+.container-md{
+    margin-top: 30px;
+}
+.card{
+    margin-top: 10px;
+}
+.card-body{
+    background-color: #DAC0A3;
+}
+
+.btn-info{
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+}
+.question{
+    color: #AE445A;
+    font-size: 1.4rem;
+}
+.answer{
+    color: #557A46;
+}
+.update, .delete{
+    cursor: pointer;
+}
+h2{
+    color: #AE445A;
+}

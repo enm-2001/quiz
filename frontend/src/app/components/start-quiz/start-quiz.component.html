@@ -1,0 +1,26 @@
+ 
+ <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Welcome to the Quiz</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p>Test your knowledge with our quiz questions.</p>
+
+            <h6>Instructions:</h6>
+            <ul>
+                <li>Read each question carefully before answering.</li>
+                <li>Choose the correct answer from the options provided.</li>
+                <li>Each question contains 1 mark.</li>
+                <li>There is no negative marking.</li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" routerLink="">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" [routerLink]="['/questions', category_id]">Start quiz</button>
+        </div>
+      </div>
+    </div>
+  </div>

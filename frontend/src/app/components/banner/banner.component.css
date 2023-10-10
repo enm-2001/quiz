@@ -1,0 +1,91 @@
+.text1{
+    margin: auto;
+    padding-top: 25vh;
+    width: 30%;
+}
+
+h1{
+    font-size: 4rem;
+}
+.btn-secondary{
+    background-color: none;
+}
+.image1{
+    background-image: url('../../../assets/banner.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    text-align: center;
+    /* align-items: center; */
+}
+
+.image1 h1{
+    color: #352F44;
+}
+
+.text2{
+    margin-left: 10vh;
+    padding-top: 10vh;
+    width: 30%;
+}
+
+.image2{
+    background-image: url('../../../assets/image2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.image2 h1{
+    color: #435334;
+}
+
+.text3{
+    display: flex;
+    /* margin: auto; */
+    margin-left: 5vh;
+    padding-top: 5vh;
+    width: 50%;
+}
+
+.image3{
+    background-image: url('../../../assets/image3.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.image3 h1{
+    color: #C08261;
+}
+
+.carousel-item{
+    height: 700px;
+}
+
+@media screen and (max-width: 1211px) {
+    /* Your CSS rules here */
+    .text1{
+        padding-top: 10vh;
+    }
+  }
+
+  @media screen and (max-width: 835px) {
+    /* Your CSS rules here */
+    .image1 h1, .image2 h1, .image3 h1{
+        font-size: 3.5rem;
+    }
+
+    .text1{
+        width: 70%;
+        padding-top: 12vh;
+    }
+
+    .text3{
+        padding-top: 8vh;
+    }
+  }
+  

@@ -1,0 +1,67 @@
+<div class="container-md">
+    <form #f="ngForm" (ngSubmit)="f.form.valid && type && onSubmit(f)">
+    <h2 *ngIf="!dataNotEmpty">Add new Question</h2>
+    <h2 *ngIf="dataNotEmpty">Update Question</h2>
+    
+      <div class="mb-3">
+        <label class="form-label">Question</label>
+        <textarea class="form-control" name="question" placeholder="Question" rows="3" [(ngModel)]="question.question"></textarea>
+      </div>
+      <div class="mb-3 row typeAnswer">
+        <label class="form-label">Type of answer</label>
+        <div class="form-check col-md-6">
+          <input class="form-check-input" type="radio" name="type" value="options" id="options" [(ngModel)]="type">
+          <label class="form-check-label" for="options">
+            Options
+          </label>
+        </div>
+        <div class="form-check col-md-6">
+          <input class="form-check-input" type="radio" name="type" value="input" id="input" [(ngModel)]="type">
+          <label class="form-check-label" for="input">
+            Input 
+          </label>
+        </div>
+      </div>
+      <div class="mb-3" *ngIf="type == 'options'">
+        <div class="row">
+          <label class="form-label col-11">Options</label>
+          <div class="col-1 plus">
+            <i class="fa-solid fa-circle-plus fa-lg" style="color: #451952;" (click)="addOption()"></i>
+          </div>
+        </div>
+        <div class="row" *ngFor="let option of options; let i = index">
+       
+            <div class="col-11 input-option">
+              <input type="text" class="form-control" name="option{{ i }}" [placeholder]="'Option ' + (i + 1)" [ngModel]="options[i]">
+
+            </div>
+            <div class="col-1 cross">
+              <i class="fa-regular fa-circle-xmark fa-lg" style="color: #451952;" (click)="removeOption(i)"></i>
+            </div>        
+      </div> 
+  
+    </div>
+    <div class="mb-3" *ngIf="type == 'options'">
+      <label class="form-label">Answer</label>
+      <select class="form-select form-select-lg mb-3" name="answer" [(ngModel)]="question.answer" aria-label=".form-select-lg example">
+        <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+    <div class="mb-3" *ngIf="type == 'input'">
+      <label class="form-label">Answer</label>
+      <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="question.answer"
+            required
+            name="answer"
+            #answer = "ngModel"
+            [ngClass]="{ 'border-danger': f.submitted && answer.invalid }"
+          />
+    </div>
+      <div class="mb-3">
+        <button type="submit" *ngIf="!dataNotEmpty" class="btn btn-primary">Add</button>
+        <button type="submit" *ngIf="dataNotEmpty" class="btn btn-primary">Update</button>
+      </div>
+    </form>
+</div>

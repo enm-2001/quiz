@@ -1,0 +1,28 @@
+.container-sm{
+    margin-top: 30px;
+}
+.thead tr th{
+    background-color: #F39F5A!important;
+}
+.tbody tr td,th{
+    background-color: #C8FFE0!important;
+}
+.fa-trash{
+    color: #e60505;
+    cursor: pointer;
+}
+h2{
+    color: #451952;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 415px) {
+    /* Your CSS rules here */
+    .table{
+        margin: 0px;
+    }
+  }
+  
+/* table{
+    border-color: #451952;
+} */

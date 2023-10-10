@@ -1,0 +1,37 @@
+.container-md{
+    margin-top: 30px;
+}
+.card{
+    margin-top: 10px;
+}
+.card-body{
+    background-color: #DAC0A3;
+}
+.btn-primary{
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+}
+.question{
+    color: #AE445A;
+    font-size: 1.4rem;
+}
+input[type = 'text']{
+    padding: 6px;
+}
+h2{
+    color: #AE445A;
+}
+.answer-input{
+    margin: 5px 10px;
+    margin-bottom: 0px;
+    width: 98%;
+    text-wrap: wrap;
+}
+h3{
+    text-align: center;
+    color: #451952;
+}
+/* .row{
+    text-align: center;
+} */

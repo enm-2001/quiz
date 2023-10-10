@@ -1,0 +1,15 @@
+<div class="container-sm" *ngIf="categories">
+    <div class="row">
+        <div class="card col-md-6 col-lg-4 col-sm-12" *ngFor="let category of categories">
+            <div class="card-body" (click)="startQuiz(category.category_id)">
+              <h4 class="card-title">{{category.cname}}</h4>
+              <h6 class="card-subtitle mb-2 text-muted">No. of quizes taken: {{category.no_of_quiz}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">No. of questions: {{category.no_of_ques}}</h6>
+              <p class="card-text">{{category.cdesc}}</p>
+              <!-- <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a> -->
+            </div>
+        </div> 
+</div>
+</div>
+

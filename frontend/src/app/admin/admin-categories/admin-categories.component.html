@@ -1,0 +1,25 @@
+<div class="container-md">
+  <h2>Categories</h2>
+    <div class="row">
+        <div class="card col-md-6 col-lg-4 col-sm-12" *ngFor="let category of categories">
+          <div class="card-body">
+                <div class="row">
+                  <div class="col-10" [routerLink]="['/admin-questions', category.category_id]">
+                <h5 class="card-title">{{category.cname}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">No. of quizes taken: {{category.no_of_quiz}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">No. of questions: {{category.no_of_ques}}</h6>
+                <p class="card-text">{{category.cdesc}}</p>
+                <!-- <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a> -->
+              </div>
+              <div class="col-1">
+                <i class="fa-solid fa-pencil" (click)="updateCategory(category.category_id)"></i>
+              </div>
+              <div class="col-1">
+                <i class="fa-solid fa-trash" (click)="deleteCategory(category.category_id)"></i>
+              </div>
+            </div>
+          </div>
+        </div> 
+</div>
+</div>

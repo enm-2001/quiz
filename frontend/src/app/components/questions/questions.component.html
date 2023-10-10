@@ -1,0 +1,42 @@
+<div class="container-md">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <h2>Category: {{ cname }}</h2>
+    <div class="card" *ngFor="let ques of questions; let i = index">
+      <div class="card-body">
+        <div class="question">{{ i + 1 }}.&nbsp;&nbsp;{{ ques.question }}</div>
+
+        <div class="row" *ngIf="ques.options">
+          <div class="col-6" *ngFor="let option of ques.options; let i = index">
+            <input
+              class="form-check-input"
+              type="radio"
+              [name]="ques.question_id"
+              [value]="ques.options[i]"
+              [(ngModel)]="ques.givenAnswer"
+            />
+            &nbsp;&nbsp;{{ option }}
+          </div>
+        </div>
+        <div class="row" *ngIf="ques.options.length == 0">
+          <!-- <input
+            type="text"
+            class="form-control answer-input"
+            placeholder="Type your answer"
+            [(ngModel)]="ques.givenAnswer"
+            name="answer"
+          /> -->
+          <textarea
+            class="form-control answer-input"
+            placeholder="Type your answer"
+            [(ngModel)]="ques.givenAnswer"
+            name="answer"
+            rows="1"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" *ngIf="questions.length != 0">Submit</button>
+    <h3 *ngIf="questions.length == 0">No questions</h3>
+  </form>
+</div>
+<!-- [(ngModel)]="ques.options.option1" -->

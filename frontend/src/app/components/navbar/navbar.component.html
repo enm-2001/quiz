@@ -1,0 +1,86 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+        <button class="navbar-brand">QuizWiz</button>
+        <button class="navbar-toggler" type="button" 
+        data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <button class="nav-link active" aria-current="page" *ngIf="role == 'user' || !userLoggedIn" routerLink="/">Home</button>
+                    <button class="nav-link active" aria-current="page" *ngIf="role == 'admin'" routerLink="/admin">Home</button>
+                </li>
+                <li *ngIf="role == 'admin'">
+                    <button class="nav-link active" aria-current="page" *ngIf="role == 'admin'" routerLink="/admin-users">Users</button>
+                </li>
+                <li class="nav-item dropdown">
+                    <button class="nav-link dropdown-toggle" id="navbarDropdown" role="button" *ngIf="role == 'user' || !userLoggedIn" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categories
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                        <li *ngFor="let category of categories"><button class="dropdown-item" (click)="startQuiz(category.category_id)">{{category.cname}}</button></li>
+                    </ul>
+                    <button class="nav-link active" aria-current="page" *ngIf="role == 'admin'" routerLink="/admin-categories">Categories</button>
+                </li>
+            </ul>
+            <div class="dropdown" *ngIf="userLoggedIn">
+                <button class="btn btn-info category" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+                </button>
+                <ul class="dropdown-menu settings" aria-labelledby="dropdownMenuButton1">
+                  <li><button class="dropdown-item" *ngIf="role == 'admin'" routerLink="/add-category"><i class="fa-regular fa-plus fa-lg nav-link" style="color: #ae445a;"></i>&nbsp;&nbsp;Add Category</button></li>
+                  <li><button class="dropdown-item" *ngIf="role == 'user'" routerLink="/profile"><i class="fa-solid fa-user" style="color: #ae445a;"></i>&nbsp;&nbsp;Profile</button></li>
+                  <li><button class="dropdown-item" *ngIf="role == 'user'" routerLink="/settings"><i class="fa-solid fa-gear" style="color: #ae445a;"></i>&nbsp;&nbsp;Settings</button></li>
+                  <li><button class="dropdown-item" (click)="logout()"><i class="fa-solid fa-right-from-bracket" style="color: #ae445a;"></i>&nbsp;&nbsp;Logout</button></li>
+                </ul>
+              </div>
+            <div class="d-flex" *ngIf="!userLoggedIn">
+                <button type="button" class="btn btn-secondary" routerLink="/login">Get started</button>
+                <!-- <button type="button" class="btn btn-info" routerLink="/signup">Signup</button> -->
+            </div>
+
+        </div>
+        
+    </div>
+
+</nav>
+<!-- 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav> -->
+  

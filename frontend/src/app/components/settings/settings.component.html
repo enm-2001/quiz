@@ -1,0 +1,73 @@
+<div class="container-md">
+  <div class="profile">
+    <img [src]="imageSrc" alt="Profile Pic" />
+  </div>
+  <div class="card">
+    <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f)">
+      <div class="row">
+        <div class="col-6">Name</div>
+        <div class="col-6">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="profile.name"
+            name="name"
+            required
+            #name="ngModel"
+            [ngClass]="{ 'border-danger': f.submitted && name.invalid }"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">Username</div>
+        <div class="col-6">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="profile.username"
+            name="username"
+            required
+            #username="ngModel"
+            [ngClass]="{ 'border-danger': f.submitted && username.invalid }"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">Email</div>
+        <div class="col-6">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="profile.email"
+            name="email"
+            required
+            #email="ngModel"
+            [ngClass]="{ 'border-danger': f.submitted && email.invalid }"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">Role</div>
+        <div class="col-6">{{ profile.role }}</div>
+      </div>
+
+      <form
+        class="form row"
+        (ngSubmit)="uploadFile()"
+        enctype="multipart/form-data"
+      >
+        <div class="col-6">
+          <label class="form-label">Upload picture</label>
+        </div>
+        <div class="col-6 picture">
+          <input class="form-control" type="file" name="fileInput" #fileInput />
+          <button class="btn btn-secondary" type="submit">Upload</button>
+        </div>
+        <!-- <input type="file" name="fileInput" #fileInput> -->
+      </form>
+
+      <br />
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+  </div>
+</div>

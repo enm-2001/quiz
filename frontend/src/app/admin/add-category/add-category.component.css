@@ -1,0 +1,16 @@
+.container-md{
+    background-color: #EFB495;
+    margin-top: 40px;
+    padding: 5vh;
+    color: #451952;
+}
+
+h2{
+    color: #AE445A;
+}
+
+.btn-primary{
+    padding: 10px 40px;
+    display: flex;
+    margin: auto;
+}

@@ -1,0 +1,117 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f)">
+        <h3>Register</h3>
+        <div class="form-group">
+          <label for="username">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Enter Name"
+            [(ngModel)]="user.name"
+            name="name"
+            required
+            #name="ngModel"
+            [ngClass]="{ 'border-danger': f.submitted && name.invalid }"
+          />
+          <div *ngIf="f.submitted && name.invalid" class="alert alert-danger">
+            Name is required.
+          </div>
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="username">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+            [(ngModel)]="user.email"
+            name="email"
+            required
+            #email="ngModel"
+            [ngClass]="{ 'border-danger': f.submitted && email.invalid }"
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+          />
+          <div *ngIf="f.submitted && email.invalid" class="alert alert-danger">
+            Valid Email is required.
+          </div>
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            placeholder="Enter username"
+            [(ngModel)]="user.username"
+            name="username"
+            required
+            #username="ngModel"
+            [ngClass]="{ 'border-danger': f.submitted && username.invalid }"
+          />
+          <div
+            *ngIf="f.submitted && username.invalid"
+            class="alert alert-danger"
+          >
+            Name is required.
+          </div>
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Enter password"
+            [(ngModel)]="user.password"
+            name="password"
+            required
+            #password="ngModel"
+            [ngClass]="{ 'border-danger': f.submitted && password.invalid }"
+            minlength="6"
+          />
+          <div
+            *ngIf="f.submitted && password.invalid"
+            class="alert alert-danger"
+          >
+            Password of minimum 6 length is required.
+          </div>
+        </div>
+        <br />
+        <div class="form-group">
+          <label>Role</label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="role"
+              value="user"
+              [(ngModel)]="user.role"
+            />
+            User
+            <input
+              class="form-check-input"
+              type="radio"
+              name="role"
+              value="admin"
+              [(ngModel)]="user.role"
+            />
+            Admin
+          </div>
+
+          <br />
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+      <br />
+      <div class="login">
+        Already a user?&nbsp; <span routerLink="/login">Login here</span>
+      </div>
+    </div>
+  </div>
+</div>

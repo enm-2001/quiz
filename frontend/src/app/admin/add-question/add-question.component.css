@@ -1,0 +1,42 @@
+.container-md{
+    background-color: #EFB495;
+    margin-top: 40px;
+    padding: 5vh;
+    color: #451952;
+}
+
+h2{
+    color: #AE445A;
+}
+
+.btn-primary{
+    padding: 10px 40px;
+    display: flex;
+    margin: auto;
+}
+
+.plus{
+    text-align: end;
+}
+
+.cross{
+    margin: auto;
+    text-align: end;
+}
+
+.typeAnswer{
+    margin: 0px 0px ;
+}
+
+.input-option{
+    margin-bottom: 5px;
+}
+
+.form-label{
+    font-size: 20px;
+}
+
+.typeAnswer .form-label{
+    padding: 0px;
+}
+  

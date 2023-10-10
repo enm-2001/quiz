@@ -1,0 +1,24 @@
+<div class="container-md">
+    <h2>Category: {{cname}}</h2>
+    <div class="card" *ngFor="let question of questions, let i = index">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-11 question">
+                    {{i + 1}}.&nbsp; {{question.question}}
+                </div>
+               
+                <div class="col-1">
+                  <i class="fa-solid fa-pencil fa-lg update" (click)="updateQuestion(question.question_id)"></i>&nbsp;&nbsp;
+                  <i class="fa-solid fa-trash fa-lg delete" style="color: #e60505;" (click)="deleteQuestion(question.question_id)"></i></div>
+            </div>
+          <div class="row" *ngIf="question.options">
+            <div class="col-6" *ngFor="let option of question.options; let i = index">
+                {{i+1}}. {{option}} 
+            </div>
+          </div>
+          <div class="answer">Correct answer: <span style="font-style: italic; font-weight: bold;">{{question.answer}}</span></div>
+        </div>
+      </div>
+      <button class="btn btn-info" [routerLink]="['/add-question',category_id]">Add Question</button>
+</div>
+

@@ -1,0 +1,40 @@
+@import "ngx-toastr/toastr";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "@fortawesome/fontawesome-free/css/all.css";
+/* Import specific Font Awesome icon categories */
+@import "@fortawesome/fontawesome-free/css/brands.css";
+@import "@fortawesome/fontawesome-free/css/regular.css";
+@import "@fortawesome/fontawesome-free/css/solid.css";
+/* @import url('https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@600&display=swap'); */
+
+/* :root {
+    font-size: calc(1rem + 0.1rem);
+  } */
+body{
+    background-image: url('./assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    /* font-family: 'AR One Sans', sans-serif; */
+}
+
+.border-danger{
+    border: 1px solid red;
+}
+
+.btn-primary {
+    background-color: #451952 !important;
+}
+
+.btn-primary:hover {
+    background-color: #F39F5A !important;
+}
+
+.btn-info {
+    background-color: #451952;
+    color: #fff;
+}
+.btn-info:hover {
+    background-color: #EFB495;
+}

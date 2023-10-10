@@ -1,0 +1,72 @@
+.container-md{
+    padding: 50px 0px;
+    margin-top: 80px;
+    margin-bottom: 60px;
+    border: none !important;
+    box-shadow: 6px 6px 12px 6px rgba(0,0,0,0.2);
+    border-radius: 25px;
+    /* background-color: bisque; */
+}
+form{
+    padding: 20px;
+}
+img{
+    width: 200px;
+    display: flex;
+    margin: auto;
+}
+
+.card{
+    background-color: #F6F4EB;
+    margin: 20px 70px;
+    
+}
+.card-text{
+    text-align: center;
+    color: #AE445A;
+    padding-bottom: 40px;
+    font-size: 1.4rem;
+}
+.row{
+    padding-top: 40px;
+}
+
+.btn-primary{
+    display: flex;
+    margin: auto;
+}
+
+.col-6:first-child{
+    text-align: center;
+    font-size: 1.2rem;
+    color: #557A46;
+}
+
+.form{
+    padding: 0px;
+    padding-top: 40px;
+}
+
+.picture{
+    display: flex;
+}
+
+@media screen and (max-width: 761px) {
+    /* Your CSS rules here */
+    .picture{
+        display: block;
+    }
+  }
+
+  @media screen and (max-width: 435px) {
+    /* Your CSS rules here */
+    .card{
+        margin: 20px 2px;
+    }
+  }
+
+/* .form button{
+    width: 10%;
+    display: flex;
+    margin: auto;
+} */
