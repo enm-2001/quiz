@@ -31,7 +31,7 @@ export class QuestionsComponent implements OnInit{
         // console.log(response);
         this.questions = response.questions
         this.cname = response.cname
-        console.log(this.questions);
+        console.log(this.questions.length);
         
         this.questions.forEach((q: any) => {
           q['givenAnswer'] = ''

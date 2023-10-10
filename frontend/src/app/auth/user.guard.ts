@@ -19,7 +19,7 @@ export class UserGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
    
-    console.log(route.routeConfig);
+    // console.log(route.routeConfig);
     if(route.routeConfig && (route.routeConfig.path == 'login' || route.routeConfig.path == 'signup') ){
       if(this.registerService.getToken()){
         this.router.navigate([''])

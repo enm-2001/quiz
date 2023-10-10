@@ -10,7 +10,7 @@ class User {
   async getUserByUsername(username) {
     const query = `select * from users where username = '${username}'`;
     const { rows } = await client.query(query);
-    return rows[0];
+    return rows;
   }
 
   async createUser(name, username, email, password, role) {

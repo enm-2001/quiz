@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { RegisterService } from 'src/app/service/register.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -10,7 +12,7 @@ import { UserService } from 'src/app/service/user.service';
 export class AdminUsersComponent implements OnInit{
 
   users! : any
-  constructor(private userService: UserService, private toastr: ToastrService) { }
+  constructor(private userService: UserService, private toastr: ToastrService, private registerService: RegisterService, private router: Router) { }
 
   ngOnInit(){
     this.userService.getUsers().subscribe(
@@ -19,7 +21,11 @@ export class AdminUsersComponent implements OnInit{
     },
     error => {
       if(error.status == 403){
-        alert("Your session is expired. Please login again to continue..")
+        if (this.registerService.navigationExtras && this.registerService.navigationExtras.state) {
+          this.registerService.navigationExtras.state['data'] = "Your session is expired. Please login again to continue..";
+          this.router.navigate(['/alert'], this.registerService.navigationExtras)
+          this.registerService.clearToken()
+        }
       }
       else{
         this.toastr.error('Try again')
@@ -34,7 +40,11 @@ export class AdminUsersComponent implements OnInit{
       },
       error => {
         if(error.status == 403){
-          alert("Your session is expired. Please login again to continue..")
+          if (this.registerService.navigationExtras && this.registerService.navigationExtras.state) {
+            this.registerService.navigationExtras.state['data'] = "Your session is expired. Please login again to continue..";
+            this.router.navigate(['/alert'], this.registerService.navigationExtras)
+            this.registerService.clearToken()
+          }
         }
         else{
           this.toastr.error('Try again')

@@ -32,7 +32,7 @@
         <div class="row" *ngFor="let option of options; let i = index">
        
             <div class="col-11 input-option">
-              <input type="text" class="form-control" name="option{{ i }}" [placeholder]="'Option ' + (i + 1)" [ngModel]="options[i]">
+              <input type="text" class="form-control" name="option{{ i }}" (blur)="onInputBlur($event, i)" [placeholder]="'Option ' + (i + 1)" [ngModel]="options[i]">
 
             </div>
             <div class="col-1 cross">
@@ -41,9 +41,11 @@
       </div> 
   
     </div>
+    <!-- {{options}} -->
     <div class="mb-3" *ngIf="type == 'options'">
       <label class="form-label">Answer</label>
       <select class="form-select form-select-lg mb-3" name="answer" [(ngModel)]="question.answer" aria-label=".form-select-lg example">
+        <!-- <option disabled selected value="Select answer">Select answer</option> -->
         <option *ngFor="let option of options" [value]="option">{{ option }}</option>
       </select>
     </div>

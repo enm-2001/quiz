@@ -63,12 +63,12 @@ const loginUser = async (req, res) => {
     if (users.length == 0) {
       res.status(409).json({ message: "User does not exist" });
     } else {
-      const pwdCorrect = await bcrypt.compare(password, users.password);
+      const pwdCorrect = await bcrypt.compare(password, users[0].password);
       if (pwdCorrect) {
-        delete users.avatar
+        delete users[0].avatar
         // console.log(users);
-        const token = await generateAccessToken(users);
-        const user = users;
+        const token = await generateAccessToken(users[0]);
+        const user = users[0];
         res.status(201).json({ user, token });
       } else {
         res.status(401).json({ message: "Incorrect password" });

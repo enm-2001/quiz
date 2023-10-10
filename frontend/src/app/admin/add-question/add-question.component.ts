@@ -46,6 +46,10 @@ export class AddQuestionComponent implements OnInit {
     }
   }
 
+  trackFocus(event: FocusEvent) {
+    event.preventDefault();
+  }
+
   onSubmit(f: NgForm){
     // console.log(f.value);
     this.question = {...this.question, options: this.options}
@@ -108,5 +112,9 @@ export class AddQuestionComponent implements OnInit {
     this.options.splice(i, 1)
     console.log(this.options);
     
+  }
+
+  onInputBlur(event: any, i: number){
+    this.options[i] = event.target.value
   }
 }
