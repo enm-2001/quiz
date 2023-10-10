@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartConfiguration, ChartOptions } from 'chart.js';
 import { CategoryService } from 'src/app/service/category.service';
 import { QuizService } from 'src/app/service/quiz.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-quiz-chart',
@@ -18,19 +19,28 @@ export class QuizChartComponent implements OnInit{
   resDataMarks: any = []
   lineLabelsDate: any = []
   lineDataDate: any = []
+  resLabelsCatUsers: any = []
+  resDataCatUsers: any = []
 
   public barChartLegendQuiz = true;
   public barChartLegendMarks = true;
+  public barChartLegendCatUsers = true;
   public lineChartLegend = true;
 
   public barChartPluginsQuiz = [];
   public barChartPluginsMarks = [];
+  public barChartPluginsCatUsers = [];
 
   barChartDataQuiz : ChartConfiguration<'bar'>['data'] = {labels: [], datasets: []}
   barChartDataMarks : ChartConfiguration<'bar'>['data'] = {labels: [], datasets: []}
+  barChartDataCatUsers : ChartConfiguration<'bar'>['data'] = {labels: [], datasets: []}
   lineChartData: ChartConfiguration<'line'>['data'] = { labels: [], datasets: [] };
   
   public barChartOptionsQuiz: ChartConfiguration<'bar'>['options'] = {
+    responsive: false,
+  };
+
+  public barChartOptionsCatUsers: ChartConfiguration<'bar'>['options'] = {
     responsive: false,
   };
 
@@ -41,7 +51,7 @@ export class QuizChartComponent implements OnInit{
     responsive: false
   };
   
-  constructor(private quizService: QuizService, private categoryService: CategoryService) {
+  constructor(private quizService: QuizService, private categoryService: CategoryService, private userService: UserService) {
   }
   
   getQuizByCategory(){
@@ -135,6 +145,32 @@ export class QuizChartComponent implements OnInit{
       }
     )
   }
+
+  getUsers(){
+    this.userService.getUsers().subscribe(
+      (response: any) => {
+        // console.log((response));
+        // response.forEach((res: any) => {
+         
+          this.resLabelsCatUsers.push('Users', 'Categories')
+          this.resDataCatUsers.push(response.length, this.categories.length)
+        // });
+
+        this.barChartDataCatUsers = {
+
+          labels: this.resLabelsCatUsers,
+          datasets: [
+            { data: this.resDataCatUsers, label: 'Users and Categories count', 
+              backgroundColor: 'rgba(174, 68, 90, 0.6)',
+               },
+          ]
+        };
+        
+        
+        
+      }
+    )
+  }
   getCategories(){
     this.categoryService.getCategories().subscribe(
       (response: any) => {
@@ -147,5 +183,6 @@ export class QuizChartComponent implements OnInit{
     this.getQuizByCategory()
     this.getMarksByCategory()
     this.getQuizByDate()
+    this.getUsers()
   }
 }

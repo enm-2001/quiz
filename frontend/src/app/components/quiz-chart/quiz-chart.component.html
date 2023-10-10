@@ -26,7 +26,15 @@
       [options]="lineChartOptions"
       [legend]="lineChartLegend">
     </canvas>
+
+    <canvas baseChart width="520" height="260"
+    class="chart col-6"
+            [data]="barChartDataCatUsers"
+            [options]="barChartOptionsCatUsers"
+            [plugins]="barChartPluginsCatUsers"
+            [legend]="barChartLegendCatUsers"
+            [type]="'bar'">
+    </canvas>
 </div>
-<div style="display: block;">
-  </div>
+
   
