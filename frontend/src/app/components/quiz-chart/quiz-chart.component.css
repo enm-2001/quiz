@@ -1,11 +1,25 @@
 .chart{
-    width: 40%;
+    /* width: 40%; */
+    width: 520px;
+    height: 350px!important;
+}
+
+.lineChart{
+    width: 400px;
+    height: 400px;
     margin-bottom: 40px;
 }
 
-.container-md{
+.container-sm{
     padding-top: 40px;
     margin: auto;
     /* display: flex; */
     justify-content: space-between;
 }
+
+@media screen and (min-width: 995px) and (max-width: 1200px) {
+    
+    .chart{
+        width: 400px;
+    }
+  }

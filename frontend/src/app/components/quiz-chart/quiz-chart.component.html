@@ -1,40 +1,47 @@
-<div class="container-md row">
+<div class="container-sm row">
+  <canvas
+    baseChart
+    width="400"
+    height="400"
+    class="lineChart col-6"
+    [type]="'line'"
+    [data]="lineChartData"
+    [options]="lineChartOptions"
+    [legend]="lineChartLegend"
+  >
+  </canvas>
 
-    <canvas baseChart width="520" height="260"
+  <canvas
+    baseChart
+    width="400"
+    height="400"
+    class="lineChart col-6"
+    [data]="barChartDataCatUsers"
+    [options]="barChartOptionsCatUsers"
+    [plugins]="barChartPluginsCatUsers"
+    [legend]="barChartLegendCatUsers"
+    [type]="'bar'"
+  >
+  </canvas>
+  <canvas
+    baseChart
     class="chart col-6"
-            [data]="barChartDataQuiz"
-            [options]="barChartOptionsQuiz"
-            [plugins]="barChartPluginsQuiz"
-            [legend]="barChartLegendQuiz"
-            [type]="'bar'">
-    </canvas>
+    [data]="barChartDataQuiz"
+    [options]="barChartOptionsQuiz"
+    [plugins]="barChartPluginsQuiz"
+    [legend]="barChartLegendQuiz"
+    [type]="'bar'"
+  >
+  </canvas>
 
-    <canvas baseChart width="520" height="260"
+  <canvas
+    baseChart
     class="chart col-6"
-            [data]="barChartDataMarks"
-            [options]="barChartOptionsMarks"
-            [plugins]="barChartPluginsMarks"
-            [legend]="barChartLegendMarks"
-            [type]="'bar'">
-    </canvas>
-
-
-    <canvas baseChart width="400" height="400"
-    class="col-6"
-      [type]="'line'"
-      [data]="lineChartData"
-      [options]="lineChartOptions"
-      [legend]="lineChartLegend">
-    </canvas>
-
-    <canvas baseChart width="520" height="260"
-    class="chart col-6"
-            [data]="barChartDataCatUsers"
-            [options]="barChartOptionsCatUsers"
-            [plugins]="barChartPluginsCatUsers"
-            [legend]="barChartLegendCatUsers"
-            [type]="'bar'">
-    </canvas>
+    [data]="barChartDataMarks"
+    [options]="barChartOptionsMarks"
+    [plugins]="barChartPluginsMarks"
+    [legend]="barChartLegendMarks"
+    [type]="'bar'"
+  >
+  </canvas>
 </div>
-
-  

@@ -12,10 +12,15 @@ export class NavbarComponent implements OnInit, DoCheck {
 
   userLoggedIn = false
   role! : string
-  // collapseNav! : boolean
+
   categories = [{category_id: '', cname: '', cdesc: '', no_of_quiz: ''}]
-  // @ViewChild('toggleBtn') toggleBtn!: ElementRef
-  @ViewChild('collapseNav') collapseNav!: ElementRef
+
+  isNavbarCollapsed = true;
+
+  toggleNavbar() {
+    this.isNavbarCollapsed = !this.isNavbarCollapsed;
+  }
+  // @ViewChild('collapseNav') collapseNav!: ElementRef;
 
   constructor(private registerService: RegisterService, private router: Router, private categoryService: CategoryService) {}
   ngOnInit() {
@@ -65,45 +70,6 @@ export class NavbarComponent implements OnInit, DoCheck {
     this.role = ''
     this.router.navigate([''])
   }
-  // collapse(){
-  //   this.collapseNav = false
-  // }
-
-  // collapse(){
-
-  //   const element = document.getElementById("navbarSupportedContent")
-  //   console.log(element?.classList);
-    
-  //   if(element?.classList.contains("show")){
-  //     element.classList.remove("show")
-  //   }
-  //   else{
-  //     element?.classList.add("show")
-  //   }
-  //   // console.log("hii");
-    
-  //   // console.log(this.collapseNav.nativeElement.classList.contains("show"))
-  //   // if(this.collapseNav.nativeElement.classList.contains('show')){
-  //   //   console.log("one");
-  //   //   this.collapseNav.nativeElement.classList.remove('show')
-  //   // }
-  //   // else{
-  //   //   console.log("two");
-  //   //   this.collapseNav.nativeElement.classList.add('show')
-  //   // }
-  //   // console.log("called");
-    
-  //   // const element = document.getElementById('navbarSupportedContent')
-  //   // if(element?.classList.contains("show")){
-  //   //   console.log("one");
-      
-  //   //   element.classList.remove('show')
-  //   // }
-  //   // else{
-  //   //   console.log("two");
-      
-  //   //   element?.classList.add("show")
-  //   // }
-  // }
+  
 }
 
