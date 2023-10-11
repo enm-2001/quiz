@@ -58,7 +58,6 @@ export class QuizChartComponent implements OnInit{
 
     this.quizService.getQuiz().subscribe(
       (response: any) => {
-        // console.log((response));
         response.forEach((res: any) => {
             this.resLabelsQuiz.push(res.cname)
             this.resDataQuiz.push(Number(res.count))
@@ -70,8 +69,6 @@ export class QuizChartComponent implements OnInit{
               this.resDataQuiz.push(0)
             }
           })
-          // console.log(this.resLabelsQuiz);
-          // console.log(this.resDataQuiz);
           this.barChartDataQuiz = {
   
             labels: this.resLabelsQuiz,
@@ -88,7 +85,6 @@ export class QuizChartComponent implements OnInit{
   getMarksByCategory(){
     this.quizService.getMarksByCategory().subscribe(
       (response: any) => {
-        // console.log((response));
         response.forEach((res: any) => {
          
           this.resLabelsMarks.push(res.cname)
@@ -149,20 +145,16 @@ export class QuizChartComponent implements OnInit{
   getUsers(){
     this.userService.getUsers().subscribe(
       (response: any) => {
-        // console.log((response));
-        // response.forEach((res: any) => {
          
           this.resLabelsCatUsers.push('Users', 'Categories')
           this.resDataCatUsers.push(response.length, this.categories.length)
-        // });
 
         this.barChartDataCatUsers = {
 
           labels: this.resLabelsCatUsers,
           datasets: [
             { data: this.resDataCatUsers, label: 'Users and Categories count', 
-              backgroundColor: 'rgba(174, 68, 90, 0.6)',
-               },
+              backgroundColor: 'rgba(174, 68, 90, 0.6)'},
           ]
         };
         

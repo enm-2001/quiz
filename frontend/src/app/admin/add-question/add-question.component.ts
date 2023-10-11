@@ -4,17 +4,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { QuestionService } from 'src/app/service/question.service';
 import { RegisterService } from 'src/app/service/register.service';
-// import { NgZone } from '@angular/core';
 
 @Component({
   selector: 'app-add-question',
   templateUrl: './add-question.component.html',
   styleUrls: ['./add-question.component.css']
-  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddQuestionComponent implements OnInit {
 
-  // category_id! : string
   count = 1
   type! : string
   options: string[] = [];
@@ -27,7 +24,6 @@ export class AddQuestionComponent implements OnInit {
   ngOnInit(){
     this.question.category_id = this._route.snapshot.params['category_id'];
     if(history.state.data){
-      // console.log("history",history.state.data);
       this.dataNotEmpty = true
       
       this._route.paramMap.subscribe(params => { 
@@ -51,7 +47,6 @@ export class AddQuestionComponent implements OnInit {
   }
 
   onSubmit(f: NgForm){
-    // console.log(f.value);
     this.question = {...this.question, options: this.options}
     if(this.type == 'input'){
       this.question.options = []
@@ -95,16 +90,12 @@ export class AddQuestionComponent implements OnInit {
             }
           }
           else{
-  
             this.toastr.error('Try again')
           }
         }
       )
     }
   }
-  // trackByFn(index: number, item: string): string {
-  //   return item; // Assuming each option is a unique string
-  // }
   addOption(){
       this.options.push('');  
   }

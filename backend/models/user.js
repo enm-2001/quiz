@@ -31,7 +31,6 @@ class User {
     try {
       const query = `update users set name = $1, username = $2, email = $3 where user_id = $4 returning *`;
       const values = [name, username, email, user_id];
-      // console.log("qq",query);
       const { rows } = await client.query(query, values);
       return rows[0];
     } catch (error) {

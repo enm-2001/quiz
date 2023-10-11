@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EvaluationComponent implements OnInit{
   
-  // evaluation = [{ title: 'attemptedQues', score: 0}, { title: 'marksTitle', score: 0}, { title: 'correctQues', score: 0}]
   attemptedQues!: string
   marksTitle! : string
   correctQues! : string

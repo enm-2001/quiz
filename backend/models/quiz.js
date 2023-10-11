@@ -15,7 +15,6 @@ class Quiz{
 
     async getQuiz(){
         try {
-            // console.log("hiii");
             const query = `select count(*), categories.cname from quiz join categories on quiz.category_id = categories.category_id group by quiz.category_id, categories.cname`
             const {rows} = await client.query(query)
             return rows
@@ -38,12 +37,10 @@ class Quiz{
         try {
             const query = 'select count(*), created_at as date from quiz group by created_at order by date'
             const {rows} = await client.query(query)
-            // console.log("rows:::",rows);
             const formattedRows = rows.map((row) => ({
                 count: row.count,
                 date: row.date ? row.date.toISOString().split('T')[0] : null, 
               }))
-            // console.log(formattedRows);
               return formattedRows;
         } catch (error) {
             console.log(error);

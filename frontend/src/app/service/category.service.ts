@@ -11,7 +11,6 @@ export class CategoryService {
   constructor(private http: HttpClient) { }
 
   getCategories(){
-    // console.log("one");  
     
     return this.http.get(this.apiUrl)
   }
@@ -21,7 +20,6 @@ export class CategoryService {
   }
 
   deleteCategory(id: string){
-    // console.log(id);   
     return this.http.delete(`${this.apiUrl}/${id}`)
   }
 

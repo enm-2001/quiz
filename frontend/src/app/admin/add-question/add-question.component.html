@@ -41,11 +41,9 @@
       </div> 
   
     </div>
-    <!-- {{options}} -->
     <div class="mb-3" *ngIf="type == 'options'">
       <label class="form-label">Answer</label>
       <select class="form-select form-select-lg mb-3" name="answer" [(ngModel)]="question.answer" aria-label=".form-select-lg example">
-        <!-- <option disabled selected value="Select answer">Select answer</option> -->
         <option *ngFor="let option of options" [value]="option">{{ option }}</option>
       </select>
     </div>

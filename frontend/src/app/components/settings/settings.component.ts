@@ -23,7 +23,6 @@ export class SettingsComponent implements OnInit{
     this.userService.getUserById(this.user_id).subscribe(
       response => {
         this.profile = response
-        // console.log(this.profile.name);
         this.imageSrc = this.userService.getImageUrl(this.profile.avatar)
     },
       error => {
@@ -41,18 +40,6 @@ export class SettingsComponent implements OnInit{
     this.getUser()
   }
 
-  // uploadImage(avatar: File){
-  //   console.log(avatar);
-
-  //   this.userService.uploadAvatar(this.user_id, avatar).subscribe(
-  //     response => {
-  //       this.toastr.success("Avaatar uploaded")
-  //     },
-  //     error => {
-  //       this.toastr.error('Try again')
-  //     }
-  //     )
-  //   }
     uploadFile(){
       const file = this.fileInput.nativeElement.files[0];
       if (file) {
@@ -60,7 +47,6 @@ export class SettingsComponent implements OnInit{
         formData.append('file', file);
         this.userService.uploadAvatar(this.user_id, formData).subscribe(
           response => {
-            // console.log("Response");
             
             this.toastr.success("Avatar uploaded")
             this.getUser()
@@ -73,7 +59,6 @@ export class SettingsComponent implements OnInit{
     }
   }
   onSubmit(f: NgForm){
-    // console.log(f.value);
     this.userService.updateUser(this.user_id, this.user).subscribe(
       response => {
         this.toastr.success("Profile updated..Please login again")
@@ -87,7 +72,6 @@ export class SettingsComponent implements OnInit{
             this.router.navigate(['/alert'], this.registerService.navigationExtras)
             this.registerService.clearToken()
           }
-          // alert("Your session is expired. Please login again to continue..")
         }
         else{
           this.toastr.error('Try again')

@@ -37,7 +37,6 @@ class Question{
         try {
             const query = `select * from questions where question_id = ${id}`
             const {rows} = await client.query(query)
-            // console.log(rows);
             return rows[0]
         } catch (error) {
             console.log(error);

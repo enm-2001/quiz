@@ -3,9 +3,7 @@ const category = new Category()
 
 const getAllCategories = async (req, res) => {
     try {
-      // console.log("two");
         const categories = await category.getAllCategories();
-        // console.log(categories);
         res.status(200).json(categories);
       } catch (error) {
         console.error('Error fetching categories', error);
@@ -49,7 +47,6 @@ const getCategoryById = async (req, res) => {
 const updateCategory = async (req, res) => {
   const {category_id} = req.params
   const {cname, cdesc} = req.body
-  // console.log("iiii",id);
   console.log(req.body);
 
   try {

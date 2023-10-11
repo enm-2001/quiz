@@ -7,10 +7,8 @@ const user = new User();
 
 const uploadAvatar = async (req, res) => {
   try {
-    // console.log("req bodyyyy",req.body);
     const { user_id } = req.params;
     const file = req.file;
-    // console.log(req.file);
     const buffer = fs.readFileSync(file.path);
     await user.uploadAvatar(user_id, buffer);
     res.status(200).json({ message: "avatar uploaded" });
@@ -66,7 +64,6 @@ const loginUser = async (req, res) => {
       const pwdCorrect = await bcrypt.compare(password, users[0].password);
       if (pwdCorrect) {
         delete users[0].avatar
-        // console.log(users);
         const token = await generateAccessToken(users[0]);
         const user = users[0];
         res.status(201).json({ user, token });
@@ -84,7 +81,6 @@ const getUserById = async (req, res) => {
   const id = req.params.user_id;
   try {
     const users = await user.getUserById(id);
-    // console.log(users);
     res.status(200).json(users);
   } catch (error) {
     console.error("Error fetching users", error);
@@ -95,7 +91,6 @@ const getUserById = async (req, res) => {
 const updateUser = async (req, res) => {
   const { user_id } = req.params;
   const { name, username, email } = req.body;
-  // console.log("iiii",id);
   console.log(req.body);
 
   try {

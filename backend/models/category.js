@@ -46,8 +46,6 @@ class Category {
 
             const query = `update categories set cname = $1, cdesc = $2 where category_id = ${category_id} returning *`
             const values = [cname, cdesc]
-            // }
-            // console.log("qq",query);
             const {rows} = await client.query(query, values) 
             return rows[0]
         } catch (error) {

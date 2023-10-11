@@ -10,7 +10,6 @@ import { UserService } from 'src/app/service/user.service';
 export class ProfileComponent implements OnInit{
 
   user! : any
-  // profile! : any
   profile:any = {name: '', email: '', username: '', role: '', avatar: ''}
   user_id! : string
   imageSrc! : any
@@ -24,7 +23,6 @@ export class ProfileComponent implements OnInit{
     this.userService.getUserById(this.user_id).subscribe(
       response => {
         this.profile = response
-        // console.log(this.profile.name);
         this.imageSrc = this.userService.getImageUrl(this.profile.avatar)
     },
       error => {

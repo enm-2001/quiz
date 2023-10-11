@@ -27,7 +27,6 @@ export class AdminCategoriesComponent {
               cat['no_of_ques'] = response.questions.length
             }
           )  
-          // console.log(this.categories);
             
         });
       },
@@ -63,18 +62,15 @@ export class AdminCategoriesComponent {
   }
 
   updateCategory(id: string){
-    // console.log("idd",id);
     
     this.categoryService.getCategoryById(id).subscribe(
       (response: any) => {
         this.categoryData = response
-        // console.log(response);
         const navigationExtras: NavigationExtras = {
           state: {
             data: this.categoryData,
           },
-        };
-        // console.log(navigationExtras);    
+        };    
         this.router.navigate(['/add-category'], navigationExtras);
       }
     )

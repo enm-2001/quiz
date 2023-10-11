@@ -11,7 +11,6 @@ export class QuestionService {
   constructor(private http: HttpClient) { }
 
   getQuestions(category_id: string){
-    // console.log("caturu",category_id);
  
     return this.http.get(`${this.apiUrl}/${category_id}`)
   }

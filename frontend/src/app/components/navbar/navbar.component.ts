@@ -1,4 +1,4 @@
-import { Component, DoCheck, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/service/category.service';
 import { RegisterService } from 'src/app/service/register.service';
@@ -20,7 +20,6 @@ export class NavbarComponent implements OnInit, DoCheck {
   toggleNavbar() {
     this.isNavbarCollapsed = !this.isNavbarCollapsed;
   }
-  // @ViewChild('collapseNav') collapseNav!: ElementRef;
 
   constructor(private registerService: RegisterService, private router: Router, private categoryService: CategoryService) {}
   ngOnInit() {
@@ -35,7 +34,6 @@ export class NavbarComponent implements OnInit, DoCheck {
     this.categoryService.getCategories().subscribe(
       (response: any) => {
         this.categories = [...response]   
-        // console.log(this.categories);
              
       }
     )

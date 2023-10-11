@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
-import { error } from 'jquery';
 import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from 'src/app/service/category.service';
 import { QuestionService } from 'src/app/service/question.service';
@@ -28,7 +27,6 @@ export class QuestionsComponent implements OnInit{
   loadQuestions(){
     this.questionService.getQuestions(this.category_id).subscribe(
       (response: any) => {
-        // console.log(response);
         this.questions = response.questions
         this.cname = response.cname
         console.log(this.questions.length);
@@ -80,9 +78,6 @@ export class QuestionsComponent implements OnInit{
       user_id: this.user_id,
       marks: this.marks
     }
-    // console.log("correct answers: ",this.correctAnswers);
-    // console.log("attempted: ", this.attempted);
-    // console.log("marks: ",this.marks);
     this.quizService.addQuiz(this.quiz).subscribe({
       next:(response) => {
 
@@ -102,8 +97,6 @@ export class QuestionsComponent implements OnInit{
     await this.evalQuiz()
     await this.categoryService.updateQuiz(this.category_id, {no_of_quiz: 1}).subscribe(
       response => {
-        // console.log(response);
-        // console.log(this.questions.length);
         
         const navigationExtras : NavigationExtras = {
           state: {
@@ -113,7 +106,6 @@ export class QuestionsComponent implements OnInit{
             questions: this.questions.length
           }
         }
-        // console.log(navigationExtras);
         
         this.router.navigate(['/evaluation'], navigationExtras)
       },
@@ -124,7 +116,6 @@ export class QuestionsComponent implements OnInit{
             this.router.navigate(['/alert'], this.registerService.navigationExtras)
             this.registerService.clearToken()
           }
-          // alert("Your session is expired. Please login again to continue..")
         }
         else{
           this.toastr.error('Try again')

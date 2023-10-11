@@ -25,14 +25,10 @@ export class UserService {
     return this.http.get(`${this.apiUrl}/${id}`)
   }
   uploadAvatar(id: string, file:any){
-    // console.log("avatar:::",avatar.name);
-    // const formData: FormData = new FormData();
-    // formData.append('file', file, file.name);
     return this.http.post(`${this.apiUrl}/${id}/avatar`,file)
   }
 
   getImageUrl(image: any) {
-    // console.log(image);
     
     const base64 = window.btoa(
       new Uint8Array(image.data).reduce(

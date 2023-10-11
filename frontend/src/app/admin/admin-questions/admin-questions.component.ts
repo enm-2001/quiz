@@ -19,7 +19,6 @@ export class AdminQuestionsComponent {
   loadQuestions(){
     this.questionService.getQuestions(this.category_id).subscribe(
       (response: any) => {
-        // console.log(response);
         this.questions = response.questions
         this.cname = response.cname
       },
@@ -59,7 +58,6 @@ export class AdminQuestionsComponent {
     this.questionService.getQuestionById(id).subscribe(
       (response: any) => {
         this.questionData = response
-        // console.log(response);
         
         const navigationExtras: NavigationExtras = {
           state: {

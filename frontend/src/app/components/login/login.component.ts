@@ -17,15 +17,12 @@ export class LoginComponent {
   onSubmit(f: NgForm){
     this.registerService.loginUser(this.user).subscribe(
       (response: any) => {
-        // console.log(response);
         
         this.registerService.loggedIn = true
         if(response.user.role == 'user'){
-          // this.registerService.userRole = 'user'
           this.router.navigate([''])
         }
         else{
-          // this.registerService.userRole = 'admin'
           this.router.navigate(['/admin'])
         }
         this.registerService.setToken(response.token)

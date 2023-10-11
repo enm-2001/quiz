@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
-  NavigationExtras,
   Router,
   RouterStateSnapshot,
   UrlTree,
@@ -18,7 +17,6 @@ export class AdminGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-    // throw new Error('Method not implemented.');
     if(this.registerService.getToken() && this.registerService.getRole() == 'admin'){
       return true;
     }

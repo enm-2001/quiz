@@ -28,7 +28,6 @@ export class CategoriesComponent implements OnInit{
               cat['no_of_ques'] = response.questions.length
             }
           )  
-          // console.log(this.categories);
             
         });
       },

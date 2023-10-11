@@ -18,10 +18,8 @@ export class AddCategoryComponent implements OnInit{
     constructor(private categoryService: CategoryService, private toastr: ToastrService, private route: ActivatedRoute, private router: Router, private registerService: RegisterService) { }
 
     ngOnInit(){
-      // console.log(this.route.snapshot);
       
       if(history.state.data){
-        // console.log("hiii");
         
         this.route.paramMap.subscribe(params => { 
           const dataPassed = history.state.data;
@@ -36,22 +34,17 @@ export class AddCategoryComponent implements OnInit{
       }
     }
     onSubmit(f: NgForm){
-      // console.log(this.route.snapshot.data);
       
       if(this.dataNotEmpty){
         
         this.categoryService.updateCategory(this.categoryDataId, this.category).subscribe(
           response => {
-            // console.log("Response");
             
             f.resetForm()
             this.toastr.success('Category updated successfully.')
             this.router.navigate(['/admin-categories'])
           },
           error => {
-            // console.log("error");
-            
-            // console.log(this.registerService);
             
             if(error.status == 403){
               if (this.registerService.navigationExtras && this.registerService.navigationExtras.state) {
@@ -59,7 +52,6 @@ export class AddCategoryComponent implements OnInit{
                 this.router.navigate(['/alert'], this.registerService.navigationExtras)
                 this.registerService.clearToken()
               }
-              // alert("Your session is expired. Please login again to continue..")
             }
             else{
               this.toastr.error('Try again')

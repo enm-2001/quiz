@@ -68,7 +68,6 @@ export class RegisterService {
       const token = this.getToken()
       if(token){
         this.decodedToken = jwt_decode(token);
-        // console.log(this.decodedToken);
         const role = this.decodedToken.role;
         return role
       }

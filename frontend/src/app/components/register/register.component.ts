@@ -18,18 +18,14 @@ export class RegisterComponent {
     private toastr: ToastrService
   ) {}
   onSubmit(f: NgForm) {
-    // console.log(this.user);
 
     this.registerService.saveUser(this.user).subscribe(
       (response: any) => {
         this.registerService.loggedIn = true;
-        // console.log(response);
 
         if (response.newUser.role == 'user') {
-          // this.registerService.userRole = 'user'
           this.router.navigate(['']);
         } else {
-          // this.registerService.userRole = 'admin'
           this.router.navigate(['/admin']);
         }
         this.registerService.setToken(response.token);

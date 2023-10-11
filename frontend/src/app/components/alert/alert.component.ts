@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 declare var $: any;
 
 @Component({
@@ -13,7 +12,6 @@ export class AlertComponent {
 
   constructor(){ }
   ngOnInit(){
-    // console.log(history.state.data);
     this.message = history.state.data
     $('#alertModal').modal('show');
   }
