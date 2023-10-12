@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/service/category.service';
 import { QuestionService } from 'src/app/service/question.service';
 import { RegisterService } from 'src/app/service/register.service';

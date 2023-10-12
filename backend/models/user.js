@@ -2,7 +2,7 @@ const { client } = require("../connection/db");
 
 class User {
   async getAllUsers() {
-    const query = "select * from users";
+    const query = "select * from users where role = 'user'";
     const { rows } = await client.query(query);
     return rows;
   }

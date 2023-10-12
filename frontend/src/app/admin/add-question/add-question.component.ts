@@ -67,7 +67,6 @@ export class AddQuestionComponent implements OnInit {
             }
           }
           else{
-  
             this.toastr.error('Try again')
           }
         }

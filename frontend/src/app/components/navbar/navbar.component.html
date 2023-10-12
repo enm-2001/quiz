@@ -31,13 +31,13 @@
                 <li *ngIf="role == 'admin' && !isNavbarCollapsed" class="nav-item"><button class="nav-link active"  routerLink="/add-category">Add Category</button></li>
                   <li *ngIf="role == 'user' && !isNavbarCollapsed" class="nav-item"><button class="nav-link active" routerLink="/profile">Profile</button></li>
                   <li *ngIf="role == 'user' && !isNavbarCollapsed" class="nav-item"><button class="nav-link active" routerLink="/settings">Settings</button></li>
-                  <li class="nav-item" *ngIf="!isNavbarCollapsed"><button class="nav-link active" (click)="logout()">Logout</button></li>
+                  <li class="nav-item" *ngIf="role != '' && !isNavbarCollapsed"><button class="nav-link active" (click)="logout()">Logout</button></li>
             </ul>
 
             <!-- menu in large screens -->
             <div class="dropdown" *ngIf="userLoggedIn && isNavbarCollapsed">
-                <button class="btn btn-info category" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+                <button class="btn category" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-bars fa-xl" style="color: #ffffff;"></i>
                 </button>
                 <ul class="dropdown-menu settings" aria-labelledby="dropdownMenuButton1">
                   <li><button class="dropdown-item" *ngIf="role == 'admin'" routerLink="/add-category"><i class="fa-regular fa-plus fa-lg nav-link" style="color: #ae445a;"></i>&nbsp;&nbsp;Add Category</button></li>

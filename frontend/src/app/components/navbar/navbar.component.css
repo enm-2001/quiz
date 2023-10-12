@@ -1,7 +1,6 @@
 .container-fluid{
     background-color: #AE445A;
     z-index: 100;
-    /* text-align: center; */
 }
 .navbar {
     background-color: #AE445A;
@@ -51,6 +50,5 @@
 }
 
 .btn-secondary{
-    /* border: none; */
     background-color: #AE445A;
 }

@@ -67,14 +67,12 @@ h1{
 }
 
 @media screen and (max-width: 1211px) {
-    /* Your CSS rules here */
     .text1{
         padding-top: 10vh;
     }
   }
 
   @media screen and (max-width: 835px) {
-    /* Your CSS rules here */
     .image1 h1, .image2 h1, .image3 h1{
         font-size: 3.5rem;
     }
