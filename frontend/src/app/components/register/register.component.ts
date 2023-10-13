@@ -10,7 +10,7 @@ import { RegisterService } from 'src/app/service/register.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  user = { name: '', email: '', username: '', password: '', role: 'user' };
+  user = { name: '', email: '', username: '', password: '', role: '' };
 
   constructor(
     private registerService: RegisterService,

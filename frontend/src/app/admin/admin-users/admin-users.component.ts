@@ -11,7 +11,7 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class AdminUsersComponent implements OnInit{
 
-  users! : any
+  users! : Array<any>
   constructor(private userService: UserService, private toastr: ToastrService, private registerService: RegisterService, private router: Router) { }
 
   ngOnInit(){

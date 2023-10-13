@@ -15,7 +15,7 @@ import { RegisterService } from 'src/app/service/register.service';
 export class QuestionsComponent implements OnInit{
 
   category_id! : string
-  questions! : any
+  questions! : Array<any>
   marks = 0
   correctAnswers = 0
   attempted = 0

@@ -11,8 +11,8 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class QuizChartComponent implements OnInit{
 
-  categories!: any
-  title = 'ng2-charts-demo';
+  categories!: Array<any>
+  // title = 'ng2-charts-demo';
   resLabelsQuiz: any = []
   resDataQuiz: any = []
   resLabelsMarks: any = []

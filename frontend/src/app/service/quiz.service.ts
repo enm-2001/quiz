@@ -11,8 +11,6 @@ export class QuizService {
   constructor(private http: HttpClient) { }
 
   addQuiz(quiz: any){
-    console.log(quiz);
-    
     return this.http.post(this.apiUrl, quiz)
   }
 

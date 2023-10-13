@@ -10,7 +10,7 @@ import { UserService } from 'src/app/service/user.service';
 export class ProfileComponent implements OnInit{
 
   user! : any
-  profile:any = {name: '', email: '', username: '', role: '', avatar: ''}
+  profile: any = {name: '', email: '', username: '', role: '', avatar: ''}
   user_id! : string
   imageSrc! : any
   constructor(private registerService: RegisterService, private userService: UserService){ }

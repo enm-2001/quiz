@@ -11,7 +11,7 @@ import { RegisterService } from 'src/app/service/register.service';
   styleUrls: ['./admin-categories.component.css']
 })
 export class AdminCategoriesComponent {
-  categories! : any
+  categories : Array<any> = []
 
   categoryData! : any
   constructor(private categoryService: CategoryService, private questionService: QuestionService, private registerService: RegisterService, private toastr: ToastrService, private router: Router) { }
