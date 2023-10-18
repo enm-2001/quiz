@@ -1,85 +1,64 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f)">
+      <form [formGroup]="user" (ngSubmit)="onSubmit()">
         <h3>Register</h3>
         <div class="form-group">
-          <label for="username">Name</label>
+          <label>Name</label>
           <input
             type="text"
             class="form-control"
-            id="name"
             placeholder="Enter Name"
-            [(ngModel)]="user.name"
-            name="name"
-            required
-            #name="ngModel"
-            [ngClass]="{ 'border-danger': f.submitted && name.invalid }"
+            name='name'
+            formControlName = 'name'
           />
-          <div *ngIf="f.submitted && name.invalid" class="alert alert-danger">
-            Name is required.
+          <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+            <div *ngIf="name.errors?.required">Name is required.</div>
           </div>
         </div>
         <br />
         <div class="form-group">
-          <label for="username">Email</label>
+          <label>Email</label>
           <input
             type="email"
             class="form-control"
-            id="email"
-            placeholder="Enter email"
-            [(ngModel)]="user.email"
+         
             name="email"
-            required
-            #email="ngModel"
-            [ngClass]="{ 'border-danger': f.submitted && email.invalid }"
-            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+            placeholder="Enter email"
+            formControlName = 'email'
           />
-          <div *ngIf="f.submitted && email.invalid" class="alert alert-danger">
-            Valid Email is required.
+          <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+            <div *ngIf="email.errors?.required">Email is required.</div>
+            <div *ngIf="email.errors?.email">Invalid email</div>
           </div>
         </div>
         <br />
         <div class="form-group">
-          <label for="username">Username</label>
+          <label>Username</label>
           <input
             type="text"
             class="form-control"
-            id="username"
             placeholder="Enter username"
-            [(ngModel)]="user.username"
+            formControlName = 'username'
             name="username"
-            required
-            #username="ngModel"
-            [ngClass]="{ 'border-danger': f.submitted && username.invalid }"
           />
-          <div
-            *ngIf="f.submitted && username.invalid"
-            class="alert alert-danger"
-          >
-            Name is required.
+          <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
+            <div *ngIf="username.errors?.required">Username is required.</div>
           </div>
         </div>
         <br />
         <div class="form-group">
-          <label for="password">Password</label>
+          <label>Password</label>
           <input
             type="password"
             class="form-control"
-            id="password"
             placeholder="Enter password"
-            [(ngModel)]="user.password"
+            formControlName = 'password'
             name="password"
-            required
-            #password="ngModel"
-            [ngClass]="{ 'border-danger': f.submitted && password.invalid }"
-            minlength="6"
           />
-          <div
-            *ngIf="f.submitted && password.invalid"
-            class="alert alert-danger"
-          >
-            Password of minimum 6 length is required.
+          <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+            <div *ngIf="password.errors?.required">Password is required.</div>
+            <div *ngIf="password.errors?.minlength">Password must be of minimum 6 characters.</div>
           </div>
         </div>
         <br />
@@ -91,7 +70,7 @@
               type="radio"
               name="role"
               value="user"
-              [(ngModel)]="user.role"
+              formControlName = 'role'
             />
             User
             <input
@@ -99,14 +78,16 @@
               type="radio"
               name="role"
               value="admin"
-              [(ngModel)]="user.role"
+              formControlName = 'role'
             />
             Admin
           </div>
-
+          <div *ngIf="role.touched && role.invalid" class="alert alert-danger">
+            <div *ngIf="role.errors?.required">Role is required.</div>
+          </div>
           <br />
         </div>
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-primary" [disabled]="user.invalid">Register</button>
       </form>
       <br />
       <div class="login">
@@ -115,3 +96,4 @@
     </div>
   </div>
 </div>
+

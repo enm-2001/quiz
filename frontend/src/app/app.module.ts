@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ToastrModule } from 'ngx-toastr';
@@ -61,7 +61,8 @@ import { QuizChartComponent } from './components/quiz-chart/quiz-chart.component
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     HttpClientModule,
-    NgChartsModule
+    NgChartsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

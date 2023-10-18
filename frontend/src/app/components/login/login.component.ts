@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RegisterService } from 'src/app/service/register.service';
@@ -10,12 +10,24 @@ import { RegisterService } from 'src/app/service/register.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  user = { username: '', password: '' };
-
-  constructor(private registerService: RegisterService, private router: Router, private toastr: ToastrService) { }
+  // user = { username: '', password: '' };
+  user: any
+  constructor(private registerService: RegisterService, private router: Router, private toastr: ToastrService) { 
+    this.user = new FormGroup({
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
+    })
+  }
   
-  onSubmit(f: NgForm){
-    this.registerService.loginUser(this.user).subscribe(
+  get username(){
+    return this.user.get('username')
+  }
+
+  get password(){
+    return this.user.get('password')
+  }
+  onSubmit(){
+    this.registerService.loginUser(this.user.value).subscribe(
       (response: any) => {
         
         this.registerService.loggedIn = true
@@ -37,7 +49,6 @@ export class LoginComponent {
         else{
           this.toastr.error('Try again')
         }
-        f.resetForm()
       }
     )  
   }
